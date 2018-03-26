@@ -39,7 +39,7 @@ if($link === false){
 if (isset($_POST['znumber'])) 
 { 
 $znumber= $_POST["znumber"];
-$sql = "select Distinct znumber, name from UserInfo where znumber = $znumber";
+$sql = "select * from UserInfo where znumber = $znumber";
 $result = $link->query($sql);
 
 
@@ -52,13 +52,27 @@ echo "<div class='table'>";
 				echo "<tr>";
 				echo "<th>Z#</th>";
 				echo "<th>Name</th>";
+                echo "<th>Class-CRN</th>";
+                echo "<th>College</th>";
+                echo "<th>Department</th>";
+                echo "<th>Class</th>";
+                echo "<th>Class Number</th>";
+                echo "<th>Class Name</th>";
+                echo "<th>Email</th>";
 				echo "</tr>";
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 						echo "<tr>";
 						echo "<td>" . $row["znumber"] . "</td>";
-						echo "<td>" . $row["name"] . "</td>";
+						echo "<td>" . $row["Name"] . "</td>";
+                        echo "<td>" . $row["class-crn"] . "</td>";
+                        echo "<td>" . $row["college"] . "</td>";
+                        echo "<td>" . $row["department"] . "</td>";
+                        echo "<td>" . $row["class"] . "</td>";
+                        echo "<td>" . $row["classnumber"] . "</td>";
+                        echo "<td>" . $row["classname"] . "</td>";
+                        echo "<td>" . $row["email"] . "</td>";
 						echo "</tr>";			
 					}
 				} else {
