@@ -39,7 +39,7 @@ if($link === false){
 if (isset($_POST['znumber'])) 
 { 
 $znumber= $_POST["znumber"];
-$sql = "select * from UserInfo where znumber = $znumber";
+$sql = "select * from UserInfo where znumber = $znumber";//select 
 $result = $link->query($sql);
 
 
@@ -47,7 +47,7 @@ echo "<div class='table'>";
 		echo "<div class='row-fluid'>";
 			echo "<div class='col-lg-6'";
 			echo "<div class='table-responsive'>";
-				echo "<table class='table table-hover table-inverse'>";
+				echo "<table class='table table-hover table-inverse'>";//good table format
 				
 				echo "<tr>";
 				echo "<th>Z#</th>";
@@ -60,9 +60,9 @@ echo "<div class='table'>";
                 echo "<th>Class Name</th>";
                 echo "<th>Email</th>";
 				echo "</tr>";
-if ($result->num_rows > 0) {
+if ($result->num_rows > 0) {//this line may return a notice in some circumstances.
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) { //GOOD JOB, GOOD FORMAT
 						echo "<tr>";
 						echo "<td>" . $row["znumber"] . "</td>";
 						echo "<td>" . $row["Name"] . "</td>";
